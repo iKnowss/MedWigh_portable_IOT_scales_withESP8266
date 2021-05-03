@@ -1,29 +1,22 @@
 /*
+
+ESP8266 NodeMCU Sender Code (ESP-NOW)
+
 !! main file upload to board !!
 !! flie adjust parameter !!
-Vertion 1.0
+Vertion 2.0
 
-esp32 iot with protocol esp-now
-refre : https://randomnerdtutorials.com/esp-now-many-to-one-esp32/
-ESP-NOW : https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/network/esp_now.html
+esp8266 iot with protocol esp-now
+refre : https://randomnerdtutorials.com/esp-now-many-to-one-esp8266-nodemcu/
 
-!! Is sender or client !!
 The receiver can identify each sender by its unique MAC address.
 */
 
 /*
-if your board is esp32 --> include <WiFi.h>
-it's not your board is esp8266 --> include <esp8266WiFi.h>
+Include the ESP8266WiFi and espnow libraries.
 */
-#ifdef ESP32
-  #include <WiFi.h>
-#else
-  #include <ESP8266WiFi.h>
-#endif
-
-/* multi sender data to one receiver vai esp-now protocol */
-/* import library esp-now */
-#include <esp_now.h>
+#include <ESP8266WiFi.h>
+#include <espnow.h>
 
 /* pin led status */
 #define pin 2
@@ -65,10 +58,10 @@ message isData;
 /*
 function this callblack when data is sented
 */
-void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status){
+void OnDataSent(const uint8_t *mac_addr, uint8_t status){
 
   /* put code callblack when sented data */
-  if (status == ESP_NOW_SEND_SUCCESS)
+  if (status == 0)
     status_OK();
   else
     status_Fail();
