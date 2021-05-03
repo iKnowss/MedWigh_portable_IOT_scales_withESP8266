@@ -1,1 +1,1 @@
-# weight-machine
+# MedWigh portable IOT scales withESP8266
