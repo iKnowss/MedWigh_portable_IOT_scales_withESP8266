@@ -11,12 +11,19 @@ void setup() {
 
   /* set device as a Wi-Fi satation */
   WiFi.mode(WIFI_STA);
+  WiFi.disconnect();
 
   /* initialize ESP-NOW than check status */
-  if (esp_now_init() != ESP_OK)
+  if (esp_now_init() != 0)
     status_Fail();
   else
     status_OK();
+
+  /*
+  Set the board role. This is a sender board,
+  so we’ll set it to ESP_NOW_ROLE_CONTROLLER.
+  */
+  esp_now_set_self_role(ESP_NOW_ROLE_CONTROLLER);
 
   /*
   esp_err_tesp_now_register_recv_cb(esp_now_recv_cb_tcb)
@@ -26,36 +33,13 @@ void setup() {
   esp_now_register_send_cb(OnDataSent);
 
   /*
-  structures
-    structesp_now_peer_info :: ESPNOW peer information parameters.
+  Add peer device
+  To send data to another board (the receiver),
+  you need to pair it as a peer. The following line registers a new peer.
+  The esp_now_add_peer() function accepts the following arguments, in this order: 
+  mac address, peer role, wi-fi channel, key, and key length.
   */
- static esp_now_peer_info peerInfo;
-
- /* uint8_t peer_addr[ESP_NOW_ETH_ALEN] */
- /* ESPNOW peer MAC address that is also the MAC address of station or softap */
- memcpy(peerInfo.peer_addr, ReceiverAddress, 6);
-
- /* uint8_t channel
-    Wi-Fi channel that peer uses to send/receive ESPNOW data.
-    If the value is 0, use the current channel which station or softap is on.
-    Otherwise, it must be set as the channel that station or softap is on. 
-*/
-  peerInfo.channel = 0;
-
-  /*
-  bool encrypt :: ESPNOW data that this peer sends/receives is encrypted or not
-  */
-  peerInfo.encrypt = false;
-
-  /*
-  esp_err_tesp_now_add_peer(constesp_now_peer_info_t *peer)::Add a peer to peer list.
-  Parameters :: peer: peer information
-  */
-  if (esp_now_add_peer(&peerInfo) != ESP_OK)
-    status_Fail();
-  else
-    status_OK();
-  
+  esp_now_add_peer(ReceiverAddress, ESP_NOW_ROLE_SLAVE, 1, NULL, 0);
 
 }
 

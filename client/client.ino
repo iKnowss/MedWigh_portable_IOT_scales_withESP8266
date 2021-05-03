@@ -58,7 +58,7 @@ message isData;
 /*
 function this callblack when data is sented
 */
-void OnDataSent(const uint8_t *mac_addr, uint8_t status){
+void OnDataSent(uint8_t *mac_addr, uint8_t status){
 
   /* put code callblack when sented data */
   if (status == 0)

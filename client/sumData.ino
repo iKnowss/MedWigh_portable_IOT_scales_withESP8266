@@ -47,14 +47,8 @@ void CalculatorWeight(int count){
         isData.dataStruct = avgWeight;
         
         /* send data vai ESP-NOW */
-        esp_err_t result = esp_now_send(ReceiverAddress, (uint8_t *) &isData, sizeof(isData));
+        esp_now_send(ReceiverAddress, (uint8_t *) &isData, sizeof(isData));
 
-         /* check status send data */
-        if (result == ESP_OK)
-          Serial.print("OK");
-  
-        
-//        Serial.print("\n");
         delay(100);
     }
 }
