@@ -7,7 +7,7 @@ ESP8266 NodeMCU Receiver Code (ESP-NOW)
 Vertion 2.0
 
 esp32 iot with protocol esp-now
-refre : https://randomnerdtutorials.com/esp-now-many-to-one-esp32/
+refre : https://randomnerdtutorials.com/esp-now-many-to-one-esp8266-nodemcu/
 
 The code is prepared to receive data from three
 different boards.
