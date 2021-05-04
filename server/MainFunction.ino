@@ -36,8 +36,9 @@ void setup(){
     WiFi.disconnect();
 
     /* initialize ESP-NOW than check status */
-    if (esp_now_init() != ESP_OK){
-        tatus_Fail();
+    if (esp_now_init() != 0){
+        status_Fail();
+        return;
     }
 
     /* onec ESP-NOW is successfully initialize */
@@ -50,7 +51,7 @@ void setup(){
 void loop(){
   
   /* put your main code here, to run repeadly */
-  Serial.print(TotleData);
+  Serial.printf("Data : %.2f", TotleData);
 
 }
 /*

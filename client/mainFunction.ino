@@ -7,7 +7,7 @@ void setup() {
 
   /* initialize Serial moitor */
   Serial.begin(115200);
-  pinMode(pin, OUTPUT);
+//  pinMode(pin, OUTPUT);
 
   /* set device as a Wi-Fi satation */
   WiFi.mode(WIFI_STA);
@@ -15,9 +15,11 @@ void setup() {
 
   /* initialize ESP-NOW than check status */
   if (esp_now_init() != 0)
-    status_Fail();
+    Serial.println("Delivery Done");
+//    status_Fail();
   else
-    status_OK();
+    Serial.println("Delivery fail");
+//    status_OK();
 
   /*
   Set the board role. This is a sender board,
@@ -25,12 +27,6 @@ void setup() {
   */
   esp_now_set_self_role(ESP_NOW_ROLE_CONTROLLER);
 
-  /*
-  esp_err_tesp_now_register_recv_cb(esp_now_recv_cb_tcb)
-  Register callback function of receiving ESPNOW data.
-  Parameters :: cb: callback function of receiving ESPNOW data
-  */
-  esp_now_register_send_cb(OnDataSent);
 
   /*
   Add peer device
@@ -40,6 +36,13 @@ void setup() {
   mac address, peer role, wi-fi channel, key, and key length.
   */
   esp_now_add_peer(ReceiverAddress, ESP_NOW_ROLE_SLAVE, 1, NULL, 0);
+
+  /*
+  esp_err_tesp_now_register_recv_cb(esp_now_recv_cb_tcb)
+  Register callback function of receiving ESPNOW data.
+  Parameters :: cb: callback function of receiving ESPNOW data
+  */
+  esp_now_register_send_cb(OnDataSent);
 
 }
 

@@ -18,21 +18,21 @@ Include the ESP8266WiFi and espnow libraries.
 #include <ESP8266WiFi.h>
 #include <espnow.h>
 
-/* pin led status */
-#define pin 2
-
 /*
 set your receiver mac address
 it's finding in find_macAddress.ion
 EX. 0xC4, 0x4F, 0x33, 0x3A, 0x32, 0x35 
 */
-uint8_t ReceiverAddress[] = {0xC4, 0x4F, 0x33, 0x3A, 0x32, 0x35};
+uint8_t ReceiverAddress[] = {0xE8, 0xDB, 0x84, 0xE2, 0xBF, 0x73};
+
+/* pin led status */
+//#define pin 2
 
 /* set ID board must be unique for each sender board */
 #define ID 1
 
 /* len of arrary for keep weight data */
-#define lenDataWeight 1000
+#define lenDataWeight 100
 
 /* variable for caculator data */
 float sumWeight = 0.0;
@@ -58,13 +58,18 @@ message isData;
 /*
 function this callblack when data is sented
 */
-void OnDataSent(uint8_t *mac_addr, uint8_t status){
+void OnDataSent(uint8_t *mac_addr, uint8_t sendStatus){
 
-  /* put code callblack when sented data */
-  if (status == 0)
-    status_OK();
-  else
-    status_Fail();
-  return;
- 
+//  /* put code callblack when sented data */
+//  if (sendStatus == 0)
+//    status_OK();
+//  else
+//    status_Fail();
+   Serial.print("\r\nLast Packet Send Status: ");
+  if (sendStatus == 0){
+    Serial.println("Delivery success");
+  }
+  else{
+    Serial.println("Delivery fail");
+  }
 }
