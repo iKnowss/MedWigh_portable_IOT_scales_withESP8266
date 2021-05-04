@@ -47,7 +47,33 @@ message Client[3] = {
 #define numBoard 3
 
 /* pin led status */
-#define pin 2
+#define pin D4
 
 /* variable for totle data  */
 double TotleData = 0;
+
+/*
+Function that will be executed when data is is received
+*/
+void OnDataRecv(uint8_t * mac_addr, uint8_t *incomingData, uint8_t len)
+{
+    /* char keep mac address client */ 
+    char macSender[18];
+    
+    Serial.print("recriver from --> ");
+    sniprintf(macSender, sizeof(macSender), "%02x:%02x:%02x:%02x:%02x:%02x",
+            mac_addr[0], mac_addr[1], mac_addr[2],
+            mac_addr[3], mac_addr[4], mac_addr[5]);
+    Serial.println(macSender);
+
+    /* copy incomingData to isData */
+    memcpy(&isData, incomingData, sizeof(isData));
+    Serial.printf("Board ID %u: %u bytes\n", isData.idBoard, len);
+
+    /* Update the struct with the new incoming data */
+    Client[isData.idBoard-1].dataStruct = isData.dataStruct;
+    Serial.printf("x value: %f \n", Client[isData.idBoard-1].dataStruct);
+
+    WeightClient();
+
+}

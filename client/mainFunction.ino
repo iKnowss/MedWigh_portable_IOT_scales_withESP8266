@@ -7,7 +7,7 @@ void setup() {
 
   /* initialize Serial moitor */
   Serial.begin(115200);
-//  pinMode(pin, OUTPUT);
+  pinMode(pin, OUTPUT);
 
   /* set device as a Wi-Fi satation */
   WiFi.mode(WIFI_STA);

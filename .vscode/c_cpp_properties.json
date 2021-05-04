@@ -15,12 +15,12 @@
             ],
             "intelliSenseMode": "gcc-x64",
             "includePath": [
-                "C:\\Users\\i.knowss\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.7.4\\tools\\sdk\\include",
-                "C:\\Users\\i.knowss\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.7.4\\tools\\sdk\\lwip2\\include",
-                "C:\\Users\\i.knowss\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.7.4\\tools\\sdk\\libc\\xtensa-lx106-elf\\include",
-                "C:\\Users\\i.knowss\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.7.4\\cores\\esp8266",
-                "C:\\Users\\i.knowss\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.7.4\\variants\\generic",
-                "C:\\Users\\i.knowss\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.7.4\\libraries\\ESP8266WiFi\\src",
+                "C:\\Users\\i.knowss\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.6.3\\tools\\sdk\\include",
+                "C:\\Users\\i.knowss\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.6.3\\tools\\sdk\\lwip2\\include",
+                "C:\\Users\\i.knowss\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.6.3\\tools\\sdk\\libc\\xtensa-lx106-elf\\include",
+                "C:\\Users\\i.knowss\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.6.3\\cores\\esp8266",
+                "C:\\Users\\i.knowss\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.6.3\\variants\\nodemcu",
+                "C:\\Users\\i.knowss\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.6.3\\libraries\\ESP8266WiFi\\src",
                 "c:\\users\\i.knowss\\appdata\\local\\arduino15\\packages\\esp8266\\tools\\xtensa-lx106-elf-gcc\\2.5.0-4-b40a506\\xtensa-lx106-elf\\include\\c++\\4.8.2",
                 "c:\\users\\i.knowss\\appdata\\local\\arduino15\\packages\\esp8266\\tools\\xtensa-lx106-elf-gcc\\2.5.0-4-b40a506\\xtensa-lx106-elf\\include\\c++\\4.8.2\\xtensa-lx106-elf",
                 "c:\\users\\i.knowss\\appdata\\local\\arduino15\\packages\\esp8266\\tools\\xtensa-lx106-elf-gcc\\2.5.0-4-b40a506\\xtensa-lx106-elf\\include\\c++\\4.8.2\\backward",
@@ -29,7 +29,7 @@
                 "c:\\users\\i.knowss\\appdata\\local\\arduino15\\packages\\esp8266\\tools\\xtensa-lx106-elf-gcc\\2.5.0-4-b40a506\\xtensa-lx106-elf\\include"
             ],
             "forcedInclude": [
-                "C:\\Users\\i.knowss\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.7.4\\cores\\esp8266\\Arduino.h"
+                "C:\\Users\\i.knowss\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.6.3\\cores\\esp8266\\Arduino.h"
             ],
             "cStandard": "c11",
             "cppStandard": "c++11",
@@ -43,11 +43,11 @@
                 "LWIP_FEATURES=1",
                 "LWIP_IPV6=0",
                 "ARDUINO=10813",
-                "ARDUINO_ESP8266_GENERIC",
+                "ARDUINO_ESP8266_NODEMCU",
                 "ARDUINO_ARCH_ESP8266",
-                "ARDUINO_BOARD=\"ESP8266_GENERIC\"",
+                "ARDUINO_BOARD=\"ESP8266_NODEMCU\"",
                 "LED_BUILTIN=2",
-                "FLASHMODE_DOUT",
+                "FLASHMODE_DIO",
                 "ESP8266",
                 "__DBL_MIN_EXP__=(-1021)",
                 "__UINT_LEAST16_MAX__=65535",

@@ -26,13 +26,13 @@ EX. 0xC4, 0x4F, 0x33, 0x3A, 0x32, 0x35
 uint8_t ReceiverAddress[] = {0xE8, 0xDB, 0x84, 0xE2, 0xBF, 0x73};
 
 /* pin led status */
-//#define pin 2
+#define pin D4
 
 /* set ID board must be unique for each sender board */
 #define ID 1
 
 /* len of arrary for keep weight data */
-#define lenDataWeight 100
+#define lenDataWeight 1000
 
 /* variable for caculator data */
 float sumWeight = 0.0;
@@ -68,8 +68,10 @@ void OnDataSent(uint8_t *mac_addr, uint8_t sendStatus){
    Serial.print("\r\nLast Packet Send Status: ");
   if (sendStatus == 0){
     Serial.println("Delivery success");
+    status_OK();
   }
   else{
     Serial.println("Delivery fail");
+    status_Fail();
   }
 }

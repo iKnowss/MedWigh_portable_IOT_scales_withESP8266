@@ -1,27 +1,4 @@
 /*
-Function that will be executed when data is is received
-*/
-void OnDataRecv(uint8_t * mac_addr, uint8_t *incomingData, uint8_t len)
-{
-    /* char keep mac address client */ 
-    char macSender[18];
-    Serial.print("recriver from --> ");
-    sniprintf(macSender, sizeof(macSender), "%02x:%02x:%02x:%02x:%02x:%02x",
-            mac_addr[0], mac_addr[1], mac_addr[2],
-            mac_addr[3], mac_addr[4], mac_addr[5]);
-    Serial.println(macSender);
-
-    /* copy incomingData to isData */
-    memcpy(&isData, incomingData, sizeof(isData));
-
-    /* Update the struct with the new incoming data */
-    Client[isData.idBoard-1].dataStruct = isData.dataStruct;
-
-    WeightClient();
-
-}
-
-/*
 ------------------------------------------------------------
 -------------------------main function----------------------
 ------------------------------------------------------------
@@ -30,6 +7,8 @@ void setup(){
 
     /* initialize Serial moitor */
     Serial.begin(115200);
+    pinMode(pin, OUTPUT);
+    digitalWrite(pin, HIGH);
 
     /* set device as a Wi-Fi satation */
     WiFi.mode(WIFI_STA);
@@ -38,6 +17,7 @@ void setup(){
     /* initialize ESP-NOW than check status */
     if (esp_now_init() != 0){
         status_Fail();
+        Serial.println("Error initializing ESP-NOW");
         return;
     }
 
@@ -51,7 +31,9 @@ void setup(){
 void loop(){
   
   /* put your main code here, to run repeadly */
-  Serial.printf("Data : %.2f", TotleData);
+    Serial.printf("\n");
+    Serial.printf("Data : %.2f", TotleData);
+    Serial.printf("\n");
 
 }
 /*
