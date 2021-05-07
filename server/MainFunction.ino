@@ -30,10 +30,16 @@ void setup(){
 }
 void loop(){
   
-  /* put your main code here, to run repeadly */
-    Serial.printf("\n");
-    Serial.printf("Data : %.2f", TotleData);
-    Serial.printf("\n");
+    int count = 1;
+    while(1){
+        CalculatorWeight(count);
+        count += 1;
+        WeightClient();
+        /* put your main code here, to run repeadly */
+        Serial.printf("\n");
+        Serial.printf("Data : %.2f", TotleData);
+        Serial.printf("\n");
+    }
 
 }
 /*

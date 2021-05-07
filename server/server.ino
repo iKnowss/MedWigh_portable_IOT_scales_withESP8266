@@ -52,6 +52,16 @@ message Client[3] = {
 /* variable for totle data  */
 double TotleData = 0;
 
+/* len of arrary for keep weight data */
+#define lenDataWeight 1000
+
+/* variable for caculator data */
+float sumWeight = 0.0;
+float avgWeight = 0.0; 
+float Weight[lenDataWeight]; /* Araay for keep weight */
+
+float randNumber;
+
 /*
 Function that will be executed when data is is received
 */
@@ -73,7 +83,5 @@ void OnDataRecv(uint8_t * mac_addr, uint8_t *incomingData, uint8_t len)
     /* Update the struct with the new incoming data */
     Client[isData.idBoard-1].dataStruct = isData.dataStruct;
     Serial.printf("x value: %f \n", Client[isData.idBoard-1].dataStruct);
-
-    WeightClient();
 
 }
