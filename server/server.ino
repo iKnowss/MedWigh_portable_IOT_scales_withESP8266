@@ -67,14 +67,14 @@ Function that will be executed when data is is received
 */
 void OnDataRecv(uint8_t * mac_addr, uint8_t *incomingData, uint8_t len)
 {
-    /* char keep mac address client */ 
-    char macSender[18];
+    // /* char keep mac address client */ 
+    // char macSender[18];
     
-    Serial.print("recriver from --> ");
-    sniprintf(macSender, sizeof(macSender), "%02x:%02x:%02x:%02x:%02x:%02x",
-            mac_addr[0], mac_addr[1], mac_addr[2],
-            mac_addr[3], mac_addr[4], mac_addr[5]);
-    Serial.println(macSender);
+    // Serial.print("recriver from : ");
+    // sniprintf(macSender, sizeof(macSender), "%02x:%02x:%02x:%02x:%02x:%02x",
+    //         mac_addr[0], mac_addr[1], mac_addr[2],
+    //         mac_addr[3], mac_addr[4], mac_addr[5]);
+    // Serial.println(macSender);
 
     /* copy incomingData to isData */
     memcpy(&isData, incomingData, sizeof(isData));
